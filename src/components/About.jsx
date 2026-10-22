@@ -22,9 +22,9 @@ const LeaderCard = ({ image, name, designation, apex }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className={`relative z-10 shrink-0 ${CARD_W}`}>
+    <div className={`relative z-10 flex h-full shrink-0 ${CARD_W}`}>
       {apex && <span className="lg-exec-halo lg-exec-halo--apex" aria-hidden="true" />}
-      <article className={`lg-card flex h-full flex-col rounded-[1.6rem] p-3 ${apex ? "lg-exec-card lg-exec-card--apex" : ""}`}>
+      <article className={`lg-card flex h-full w-full flex-col rounded-[1.6rem] p-3 ${apex ? "lg-exec-card lg-exec-card--apex" : ""}`}>
         <div className="lg-plate relative overflow-hidden rounded-[1.2rem]">
           <div className="aspect-[4/5] w-full">
             {imgError ? (
@@ -47,7 +47,7 @@ const LeaderCard = ({ image, name, designation, apex }) => {
           <span className="lg-plate-scrim" aria-hidden="true" />
         </div>
 
-        <div className="relative z-10 flex flex-1 flex-col px-1 pb-1 pt-3 text-center">
+        <div className="relative z-10 flex flex-1 flex-col justify-between px-1 pb-1 pt-3 text-center">
           <h3 className="font-ubuntu text-sm font-semibold leading-snug text-gray-900 sm:text-[15px]">{name}</h3>
           <p className="mt-1 text-[11px] leading-snug text-gray-500">{designation}</p>
         </div>
@@ -59,9 +59,9 @@ const LeaderCard = ({ image, name, designation, apex }) => {
 };
 
 const SkeletonCard = () => (
-  <div className={`lg-card flex h-full flex-col rounded-[1.6rem] p-3 ${CARD_W}`}>
+  <div className={`lg-card flex h-full w-full flex-col rounded-[1.6rem] p-3 ${CARD_W}`}>
     <div className="lg-skeleton aspect-[4/5] w-full rounded-[1.2rem]" />
-    <div className="flex flex-1 flex-col items-center gap-2 px-1 pt-3">
+    <div className="flex flex-1 flex-col items-center justify-between gap-2 px-1 pt-3">
       <div className="lg-skeleton h-4 w-3/4 rounded-full" />
       <div className="lg-skeleton h-3 w-1/2 rounded-full" />
     </div>
@@ -108,10 +108,10 @@ const RowTier = ({ title, members = [], fill = 3, loading, reduce, showTitle = t
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.12 }}
-          className="flex flex-wrap justify-center gap-5 sm:gap-6"
+          className="flex flex-wrap justify-center items-stretch gap-5 sm:gap-6"
         >
           {cards.map((m, i) => (
-            <motion.div key={m?._id || i} variants={item} className={`${CARD_W} shrink-0`}>
+            <motion.div key={m?._id || i} variants={item} className={`flex h-auto ${CARD_W} shrink-0`}>
               {loading ? <SkeletonCard /> : <LeaderCard {...m} />}
             </motion.div>
           ))}
