@@ -1,0 +1,43 @@
+{
+  "compressionSettings": {
+    "CompressObjects": true,
+    "SupportedCompressions": [
+      "gzip",
+      "brotli"
+    ]
+  },
+  "customErrorResponses": [
+    {
+      "ErrorCode": 403,
+      "ResponsePagePath": "/index.html",
+      "ResponseCode": 200,
+      "ErrorCachingMinTTL": 0
+    },
+    {
+      "ErrorCode": 404,
+      "ResponsePagePath": "/index.html",
+      "ResponseCode": 200,
+      "ErrorCachingMinTTL": 0
+    }
+  ],
+  "cacheBehaviors": [
+    {
+      "PathPattern": "/assets/*",
+      "CachePolicyName": "CachingOptimized",
+      "TTL": {
+        "DefaultTTL": 31536000,
+        "MaxTTL": 31536000
+      },
+      "Compress": true
+    },
+    {
+      "PathPattern": "*.html",
+      "CachePolicyName": "CachingDisabled",
+      "TTL": {
+        "DefaultTTL": 300,
+        "MaxTTL": 3600
+      },
+      "Compress": true
+    }
+  ]
+}

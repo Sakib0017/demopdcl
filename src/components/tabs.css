@@ -1,0 +1,71 @@
+
+
+.tabs li {
+  display: block;
+  padding: 10px 23px;
+  background: #000000;
+  margin-right: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.tabs li.active {
+  background: #00a884;
+  color: #ffffff;
+}
+
+
+
+.ping-delay-100 {
+  animation-delay: 1.0s;
+}
+
+.ping-delay-200 {
+  animation-delay: 2.0s;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+#timer {
+  animation: pulse 2s infinite ease-in-out;
+}
+#timer1 {
+  animation: pulse 4s infinite ease-in-out;
+}
+#timer2 {
+  animation: pulse 2s infinite ease-in-out;
+}
+#timer3 {
+  animation: pulse 4s infinite ease-in-out;
+}
+#timer4 {
+  animation: pulse 2s infinite ease-in-out;
+}
+#timer5 {
+  animation: pulse 4s infinite ease-in-out;
+}
+
+
+.expand span:last-child {
+  max-width: max-content;
+  /* Expand the text to its full width */
+  padding-left: 0.5rem;
+  /* Add padding to the left of the text */
+  padding-right: 0.5rem;
+  /* Add padding to the right of the text */
+  transform: scale(1);
+  /* Scale the text back to its original size */
+  transition: all 700ms ease-in-out;
+  /* Smooth transition for 700ms */
+}
+
+
+

@@ -1,0 +1,16 @@
+# Keep the free *.pages.dev hostnames out of search results so they never
+# compete with the custom domain as duplicate content. These rules match on
+# host, so the custom domain stays fully crawlable and is unaffected.
+# Preview deployments already get X-Robots-Tag: noindex from Cloudflare;
+# these two cover the production pages.dev URL, which does not.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Vite fingerprints every filename in assets/, so these are safe to pin
+# forever. HTML is deliberately left alone: Pages revalidates it by default,
+# which is what lets a deploy go live immediately.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

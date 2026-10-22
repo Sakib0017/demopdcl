@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "assets/*.js": {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": "application/javascript",
+      "Content-Encoding": "gzip"
+    },
+    "assets/*.css": {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": "text/css",
+      "Content-Encoding": "gzip"
+    },
+    "assets/*.{webp,png,jpg,jpeg,svg,ico}": {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": "auto"
+    },
+    "assets/*.{mp4,webm}": {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": "auto"
+    },
+    "*.html": {
+      "Cache-Control": "public, max-age=3600",
+      "Content-Type": "text/html",
+      "Content-Encoding": "gzip"
+    },
+    "index.html": {
+      "Cache-Control": "public, max-age=300",
+      "Content-Type": "text/html",
+      "Content-Encoding": "gzip"
+    }
+  }
+}

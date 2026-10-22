@@ -1,0 +1,26 @@
+[     107ms] [ERROR] WebSocket connection to 'ws://localhost:5175/?token=FjCaDGQ8VNWC' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/@vite/client:535
+[     123ms] [ERROR] WebSocket connection to 'ws://localhost:5173/?token=FjCaDGQ8VNWC' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/@vite/client:535
+[     134ms] [ERROR] [vite] failed to connect to websocket.
+your current setup:
+  (browser) localhost:5175/ <--[HTTP]--> localhost:5173/ (server)
+  (browser) localhost:5175/ <--[WebSocket (failing)]--> localhost:5173/ (server)
+Check out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr . @ http://localhost:5175/@vite/client:511
+[     432ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/2.webp:0
+[     433ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/3.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/2.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/3.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/Logos/Arogga.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/Logos/Amarlab.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/Logos/Hajj.webp:0
+[     456ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/Logos/PureHealth.webp:0
+[     582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/4.webp:0
+[     582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/5.webp:0
+[     582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/6.webp:0
+[     582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/7.webp:0
+[     582ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/9.webp:0
+[     583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/10.webp:0
+[     583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/12.webp:0
+[     583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/13.webp:0
+[     583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/8.webp:0
+[     584ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/11.webp:0
+[     584ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:5175/src/assets/HeroImages/14.webp:0

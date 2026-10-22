@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /patient_portal
+
+Sitemap: https://www.populardiagnostic.com/sitemap.xml

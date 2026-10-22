@@ -1,0 +1,60 @@
+name: Sync to personal copy
+
+# Copies every branch and tag of this repo to a personal repository on each
+# push, so the personal copy always matches this one.
+#
+# Required one-time setup here
+# (Settings -> Secrets and variables -> Actions):
+#   Variable  ACTIVATION_REPO   e.g. "your-username/UpdatedFrontend"
+#   Secret    ACTIVATION_TOKEN  fine-grained PAT on the personal account, scoped
+#                               to that repo, with Contents: Read and write
+#
+# NOTE: this is a force/prune sync. Any commit or branch that exists only in the
+# personal copy is overwritten or deleted. Treat that copy as read-only.
+
+on:
+  push:
+    branches: ['**']
+    tags: ['**']
+  delete:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: activation
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check configuration
+        run: |
+          if [ -z "${{ vars.ACTIVATION_REPO }}" ]; then
+            echo "::error::Repository variable ACTIVATION_REPO is not set (expected owner/repo)."
+            exit 1
+          fi
+
+      - name: Copy branches and tags
+        env:
+          SOURCE_TOKEN: ${{ github.token }}
+          SOURCE_REPO: ${{ github.repository }}
+          TARGET_TOKEN: ${{ secrets.ACTIVATION_TOKEN }}
+          TARGET_REPO: ${{ vars.ACTIVATION_REPO }}
+        run: |
+          set -euo pipefail
+
+          # Bare repo fetching only heads and tags. A full ref copy would also
+          # pull refs/pull/*, which GitHub refuses to accept on push.
+          git init --bare --quiet work.git
+          cd work.git
+
+          git fetch --quiet --prune \
+            "https://x-access-token:${SOURCE_TOKEN}@github.com/${SOURCE_REPO}.git" \
+            "+refs/heads/*:refs/heads/*" "+refs/tags/*:refs/tags/*"
+
+          git push --prune --force \
+            "https://x-access-token:${TARGET_TOKEN}@github.com/${TARGET_REPO}.git" \
+            "refs/heads/*:refs/heads/*" "refs/tags/*:refs/tags/*"
