@@ -51,22 +51,25 @@ const LeaderCard = ({ image, name, designation, apex }) => {
         </div>
 
         <div className="relative z-10 flex flex-1 flex-col justify-between px-1 pb-1 pt-2.5 sm:pt-3 text-center">
-          <h3
-            className={`font-ubuntu font-semibold leading-snug text-gray-900 ${apex
-                ? "text-sm sm:text-lg lg:text-xl font-bold text-[#006642]"
-                : "text-[11px] xs:text-xs sm:text-[14px] lg:text-[15px]"
-              }`}
-          >
-            {name}
-          </h3>
+          {/* Designation (Featured with large bold text on Apex card) */}
           <p
-            className={`mt-1 leading-snug ${apex
-                ? "text-[11px] sm:text-sm font-medium text-gray-600"
-                : "text-[10px] sm:text-[11px] text-gray-500"
+            className={`leading-snug ${apex
+                ? "order-2 text-lg sm:text-2xl lg:text-3xl font-bold text-[#006642]"
+                : "order-1 mt-1 text-[10px] sm:text-[11px] text-gray-500"
               }`}
           >
             {designation}
           </p>
+
+          {/* Name */}
+          <h3
+            className={`font-ubuntu leading-snug ${apex
+                ? "order-1 mt-1.5 text-xs sm:text-base lg:text-lg font-medium text-gray-800"
+                : "order-2 text-[11px] xs:text-xs sm:text-[14px] lg:text-[15px] font-semibold text-gray-900"
+              }`}
+          >
+            {name}
+          </h3>
         </div>
 
         <span className="lg-underline" aria-hidden="true" />
