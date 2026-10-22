@@ -25,7 +25,7 @@ const LeaderCard = ({ image, name, designation, apex }) => {
     <div className={`relative z-10 flex h-full shrink-0 ${CARD_W}`}>
       {apex && <span className="lg-exec-halo lg-exec-halo--apex" aria-hidden="true" />}
       <article
-        className={`lg-card flex h-full w-full flex-col rounded-[1.4rem] sm:rounded-[1.6rem] p-2.5 sm:p-3 transition-all duration-300 ${apex ? "lg-exec-card lg-exec-card--apex ring-2 ring-[#00984a]/30 shadow-lg" : ""
+        className={`lg-card flex h-full w-full flex-col rounded-[1.4rem] sm:rounded-[1.6rem] p-2.5 sm:p-3 transition-all duration-300 ${apex ? "lg-exec-card " : ""
           }`}
       >
         <div className="lg-plate relative overflow-hidden rounded-[1rem] sm:rounded-[1.2rem]">
